@@ -13,3 +13,7 @@ resource "intersight_hyperflex_sys_config_policy" "sys_config_policy" {
     value = var.tag_value1
   }
 }
+
+data "intersight_hyperflex_sys_config_policy" "sys_config_data" {
+  name = var.sys_config_name
+}

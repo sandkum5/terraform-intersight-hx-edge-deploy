@@ -14,3 +14,7 @@ resource "intersight_hyperflex_cluster_network_policy" "cluster_network_policy" 
     value = var.tag_value1
   }
 }
+
+data "intersight_hyperflex_cluster_network_policy" "cluster_network_data" {
+  name = var.cluster_network_name
+}

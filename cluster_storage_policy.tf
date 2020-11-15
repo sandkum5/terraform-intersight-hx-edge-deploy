@@ -11,3 +11,7 @@ resource "intersight_hyperflex_cluster_storage_policy" "cluster_storage_policy" 
     value = var.tag_value1
   }
 }
+
+data "intersight_hyperflex_cluster_storage_policy" "cluster_storage_data" {
+  name = var.storage_policy_name
+}

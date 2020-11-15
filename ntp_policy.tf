@@ -11,3 +11,7 @@ resource "intersight_ntp_policy" "ntp_policy" {
     var.ntp_server2
   ]
 }
+
+data "intersight_ntp_policy" "ntp_data" {
+  name = var.ntp_name
+}

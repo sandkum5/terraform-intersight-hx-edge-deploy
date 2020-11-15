@@ -22,3 +22,7 @@ resource "intersight_hyperflex_node_config_policy" "node_config_policy" {
     value = var.tag_value1
   }
 }
+
+data "intersight_hyperflex_node_config_policy" "node_config_data" {
+  name = var.node_config_name
+}
