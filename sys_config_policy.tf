@@ -1,3 +1,4 @@
+# DNS, NTP and Timezone
 resource "intersight_hyperflex_sys_config_policy" "sys_config_policy" {
   name            = var.sys_config_name
   description     = var.sys_config_description
@@ -12,8 +13,4 @@ resource "intersight_hyperflex_sys_config_policy" "sys_config_policy" {
     key   = var.tag_key1
     value = var.tag_value1
   }
-}
-
-data "intersight_hyperflex_sys_config_policy" "sys_config_data" {
-  name = var.sys_config_name
 }

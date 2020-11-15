@@ -13,7 +13,3 @@ resource "intersight_hyperflex_vcenter_config_policy" "vcenter_config_policy" {
     value = var.tag_value1
   }
 }
-
-data "intersight_hyperflex_vcenter_config_policy" "vcenter_config_data" {
-  name = var.vcenter_config_name
-}

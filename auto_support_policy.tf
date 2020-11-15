@@ -11,7 +11,3 @@ resource "intersight_hyperflex_auto_support_policy" "auto_support_policy" {
     value = var.tag_value1
   }
 }
-
-data "intersight_hyperflex_auto_support_policy" "auto_support_data" {
-  name = var.auto_support_name
-}

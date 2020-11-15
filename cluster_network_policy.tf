@@ -1,3 +1,4 @@
+# Network Configuration
 resource "intersight_hyperflex_cluster_network_policy" "cluster_network_policy" {
   name         = var.cluster_network_name
   description  = var.cluster_network_description
@@ -13,8 +14,4 @@ resource "intersight_hyperflex_cluster_network_policy" "cluster_network_policy" 
     key   = var.tag_key1
     value = var.tag_value1
   }
-}
-
-data "intersight_hyperflex_cluster_network_policy" "cluster_network_data" {
-  name = var.cluster_network_name
 }

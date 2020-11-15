@@ -28,28 +28,28 @@ resource "intersight_hyperflex_cluster_profile" "cluster_profile" {
     key   = var.tag_key1
     value = var.tag_value1
   }
-  auto_support {
-    moid = data.intersight_hyperflex_auto_support_policy.auto_support_data.moid
-  }
-  cluster_network {
-    moid = data.intersight_hyperflex_cluster_network_policy.cluster_network_data.moid
-  }
-  cluster_storage {
-    moid = data.intersight_hyperflex_cluster_storage_policy.cluster_storage_data.moid
-  }
   local_credential {
-    moid = data.intersight_hyperflex_local_credential_policy.local_credential_data.moid
-  }
-  node_config {
-    moid = data.intersight_hyperflex_node_config_policy.node_config_data.moid
-  }
-  software_version {
-    moid = data.intersight_hyperflex_software_version_policy.software_version_data.moid
+    moid = intersight_hyperflex_local_credential_policy.local_credential_policy.moid
   }
   sys_config {
-    moid = data.intersight_hyperflex_sys_config_policy.sys_config_data.moid
+    moid = intersight_hyperflex_sys_config_policy.sys_config_policy.moid
   }
   vcenter_config {
-    moid = data.intersight_hyperflex_vcenter_config_policy.vcenter_config_data.moid
+    moid = intersight_hyperflex_vcenter_config_policy.vcenter_config_policy.moid
+  }
+  cluster_storage {
+    moid = intersight_hyperflex_cluster_storage_policy.cluster_storage_policy.moid
+  }
+  auto_support {
+    moid = intersight_hyperflex_auto_support_policy.auto_support_policy.moid
+  }
+  node_config {
+    moid = intersight_hyperflex_node_config_policy.node_config_policy.moid
+  }
+  cluster_network {
+    moid = intersight_hyperflex_cluster_network_policy.cluster_network_policy.moid
+  }
+  software_version {
+    moid = intersight_hyperflex_software_version_policy.software_version_policy.moid
   }
 }

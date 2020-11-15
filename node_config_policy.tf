@@ -1,3 +1,4 @@
+# IP & Hostname
 resource "intersight_hyperflex_node_config_policy" "node_config_policy" {
   name             = var.node_config_name
   description      = var.node_config_description
@@ -21,8 +22,4 @@ resource "intersight_hyperflex_node_config_policy" "node_config_policy" {
     key   = var.tag_key1
     value = var.tag_value1
   }
-}
-
-data "intersight_hyperflex_node_config_policy" "node_config_data" {
-  name = var.node_config_name
 }

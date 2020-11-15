@@ -13,7 +13,3 @@ resource "intersight_hyperflex_local_credential_policy" "local_credential_policy
     value = var.tag_value1
   }
 }
-
-data "intersight_hyperflex_local_credential_policy" "local_credential_data" {
-  name = var.local_credential_name
-}

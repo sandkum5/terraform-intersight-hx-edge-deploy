@@ -10,7 +10,3 @@ resource "intersight_hyperflex_software_version_policy" "software_version_policy
     value = var.tag_value1
   }
 }
-
-data "intersight_hyperflex_software_version_policy" "software_version_data" {
-  name = var.software_version_name
-}
