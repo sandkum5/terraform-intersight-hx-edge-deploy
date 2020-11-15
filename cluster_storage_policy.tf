@@ -1,8 +1,8 @@
 resource "intersight_hyperflex_cluster_storage_policy" "cluster_storage_policy" {
-  name                   = var.storage_policy_name
-  description            = var.storage_policy_description
-  disk_partition_cleanup = var.storage_policy_disk_partition_cleanup
-  vdi_optimization       = var.storage_policy_vdi_optimization
+  name                   = var.cluster_storage_name
+  description            = var.cluster_storage_description
+  disk_partition_cleanup = var.cluster_storage_disk_partition_cleanup
+  vdi_optimization       = var.cluster_storage_vdi_optimization
   organization {
     object_type = "organization.Organization"
   }
@@ -13,5 +13,5 @@ resource "intersight_hyperflex_cluster_storage_policy" "cluster_storage_policy" 
 }
 
 data "intersight_hyperflex_cluster_storage_policy" "cluster_storage_data" {
-  name = var.storage_policy_name
+  name = var.cluster_storage_name
 }
