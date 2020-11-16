@@ -49,6 +49,11 @@ resource "intersight_hyperflex_cluster_profile" "cluster_profile" {
   cluster_network {
     moid = intersight_hyperflex_cluster_network_policy.cluster_network_policy.moid
   }
+  /*
+  proxy_setting {
+    moid = intersight_hyperflex_proxy_setting_policy.proxy_setting_policy.moid
+  }
+  */
   software_version {
     moid = intersight_hyperflex_software_version_policy.software_version_policy.moid
   }
