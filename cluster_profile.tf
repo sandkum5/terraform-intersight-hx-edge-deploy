@@ -4,7 +4,6 @@ resource "intersight_hyperflex_cluster_profile" "cluster_profile" {
     intersight_hyperflex_cluster_storage_policy.cluster_storage_policy,
     intersight_hyperflex_local_credential_policy.local_credential_policy,
     intersight_hyperflex_node_config_policy.node_config_policy,
-    intersight_ntp_policy.ntp_policy,
     intersight_hyperflex_software_version_policy.software_version_policy,
     intersight_hyperflex_sys_config_policy.sys_config_policy,
     intersight_hyperflex_vcenter_config_policy.vcenter_config_policy
