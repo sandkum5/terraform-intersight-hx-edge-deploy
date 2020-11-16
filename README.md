@@ -28,10 +28,9 @@ git clone https://github.com/sandkum5/terraform-intersight-hx-edge-deploy.git
 cd hx-edge
 ```
 
-* Add desired values in the env1.tfvars/env2.tfvars template files. # File name can be re-named as new-filename.tfvars. 
+* Add desired values in the env1.tfvars/env2.tfvars template files. Filename can be re-named as new-filename.tfvars. 
 
-Note: 
-At present, the profile doesn't associate any servers with the Hyperflex policy. Choose the servers manually for now. 
+* Note: At present, the profile doesn't associate any servers with the Hyperflex policy. Choose the servers manually for now. 
 
 
 
