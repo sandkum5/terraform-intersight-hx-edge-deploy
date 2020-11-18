@@ -33,14 +33,7 @@ cd hx-edge
 * Note: At present, the profile doesn't associate any servers with the Hyperflex policy. Choose the servers manually for now. 
 
 
-
-* Change directory to hxedgeprofile
-
-```txt
-cd Example1
-```
-
-* Initialize Terraform and downloads provider plugin
+* Initialize Terraform. This step automatically downloads intersight provider plugin
 
 ```txt
 terraform init
