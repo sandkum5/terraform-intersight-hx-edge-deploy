@@ -65,3 +65,6 @@ When asked to enter a value, enter **"yes"**.
 ```txt
 terraform destroy
 ```
+
+To get more details on Intersight, terraform provider for intersight, how to create an intersight account, how to Generate API keys, refer: 
+https://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/2201041-intersight-terrafirma-wp.html 
