@@ -74,3 +74,5 @@ terraform plan -var-file=<env_name>.tfvars
 terraform apply -var-file=<env_name>.tfvars
 ```
 * Use the provided sample env.tfvars template for all the environment variables configuration. 
+
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/sandkum5/terraform-intersight-hx-edge-deploy)
