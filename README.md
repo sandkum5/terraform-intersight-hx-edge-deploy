@@ -1,3 +1,4 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/sandkum5/terraform-intersight-hx-edge-deploy)
 # Hyperflex Edge Profile Creation in Intersight using Terraform
 * This module creates a Hyperflex Edge profile and its related policies in intersight. 
 * It doesn't associate the servers with the profile. That needs to be done manually and need to start the deployment manually. 
@@ -74,5 +75,3 @@ terraform plan -var-file=<env_name>.tfvars
 terraform apply -var-file=<env_name>.tfvars
 ```
 * Use the provided sample env.tfvars template for all the environment variables configuration. 
-
-[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/sandkum5/terraform-intersight-hx-edge-deploy)
