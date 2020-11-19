@@ -18,7 +18,7 @@ cd hx-edge
 ```
 
 * Copy the SecretKye.txt file in the hx-edge directory. 
-* Add the API Key to the api_key variable and the rest of the environment variables in the env1.tfvars/env2.tfvars template files. Filename can be    re-named as new-filename.tfvars.
+* Add the API Key to the api_key variable and the rest of the environment variables in the `<env>`.tfvars template files. Filename can be re-named as `<new-filename>`.tfvars.
 
 * Initialize Terraform. 
   Note: This step automatically downloads intersight provider plugin. 
