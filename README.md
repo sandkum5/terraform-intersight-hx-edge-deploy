@@ -75,3 +75,9 @@ terraform plan -var-file=<env_name>.tfvars
 terraform apply -var-file=<env_name>.tfvars
 ```
 * Use the provided sample env.tfvars template for all the environment variables configuration. 
+
+
+
+### Additional intersight modules: 
+https://github.com/CiscoDevNet/intersight-terraform-modules
+
