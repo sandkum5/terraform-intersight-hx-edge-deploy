@@ -81,3 +81,18 @@ terraform apply -var-file=<env_name>.tfvars
 ### Additional intersight modules: 
 https://github.com/CiscoDevNet/intersight-terraform-modules
 
+
+### Caveates 
+-When we create HX Cluster profile and try to delete the HX Cluster profile using terraform, we get the following error:
+Error: error occurred while deleting HyperflexSoftwareVersionPolicy object: 404 Not Found Response from endpoint:
+{"code":"NotFound","message":"Cannot execute the request. The request object 'xxxxxx' does not exist.",
+"messageId":"barcelona_request_object_does_not_exist","messageParams":{"1":"xxx"},"traceId":"xxxxx"}
+
+To avoid this, please do the following:
+```txt
+terraform state list                                                                        <- Get the resource name
+terraform state rm intersight_hyperflex_software_version_policy.hx_software_version_policy  <- Remove the resource from state file
+terraform destroy -var-file=env.dev.tfvars                                                  <- Destroy resources
+```
+
+
