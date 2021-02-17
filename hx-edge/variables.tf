@@ -23,12 +23,10 @@ variable "endpoint" {
 variable "tag_key1" {
   type        = string
   description = "Environment Specific tag name"
-  default     = "Type"
 }
 variable "tag_value1" {
   type        = string
   description = "Environment Specific tag value"
-  default     = "LAB"
 }
 
 # auto_support_policy 
