@@ -2,218 +2,527 @@
 
 # Intersight Access API Key
 variable "api_key" {
-  default = "<API_KEY>"
+  type        = string
+  description = "Intersight API key"
 }
+
+variable "secret_key" {
+  type        = string
+  description = "Intersight Secret Key file"
+}
+
+variable "endpoint" {
+  type        = string
+  description = "Intersight URL"
+  default     = "https://intersight.com"
+}
+
 
 # Common
 # Tags
 variable "tag_key1" {
-  default = "Type"
+  type        = string
+  description = "Environment Specific tag name"
+  default     = "Type"
 }
 variable "tag_value1" {
-  default = "LAB"
+  type        = string
+  description = "Environment Specific tag value"
+  default     = "LAB"
 }
 
 # auto_support_policy 
-variable "auto_support_name" {
-  default = "lab-auto"
+variable "hx_auto_support_name" {
+  type        = string
+  description = "Auto Support policy name"
 }
-variable "auto_support_description" {
-  default = "lab auto-support"
+variable "hx_auto_support_description" {
+  type        = string
+  description = "Auto Support policy description"
 }
-variable "auto_support_service_ticket_receipient" {
-  default = "lab@lab.com"
+variable "hx_auto_support_service_ticket_receipient" {
+  type        = string
+  description = "Auto Support receipient email ID"
 }
-variable "auto_support_admin_state" {
-  default = true
+variable "hx_auto_support_admin_state" {
+  type        = bool
+  description = "Enable or disable Auto Support"
 }
 
-# cluster_network_policy
-variable "cluster_network_name" {
-  default = "lab-net"
+# hx cluster_network_policy
+variable "hx_network_policy_name" {
+  type        = string
+  description = "Network configuration policy name"
 }
-variable "cluster_network_description" {
-  default = "lab net"
+variable "hx_network_policy_description" {
+  type        = string
+  description = "Network configuration policy Description"
 }
-variable "cluster_network_jumbo_frame" {
-  default = true
+variable "hx_jumbo_frame" {
+  type        = bool
+  description = "Enable or disable jumbo frames"
 }
-variable "cluster_network_uplink_speed" {
-  description = "Possible values: 1G or 10G"
-  default     = "1G"
+variable "hx_uplink_speed" {
+  type        = string
+  description = "Uplink speed, possible values: 1G or 10G"
 }
-variable "cluster_network_mgmt_vlan_id" {
-  default = 1
+### mgmt_vlan (Type: HashMap)
+variable "hx_mgmt_vlan_id" {
+  type        = number
+  description = "mgmt VLAN id, the mgmt VLAN must have outbound network connectivity to Intersight"
 }
+
+# ## 10G options 
+# ### vm_migration_vlan (Type: HashMap)
+# variable "hx_vm_migration_vlan_name" {
+#   type        = string
+#   description = "VM migration/vMotion VLAN name"
+# }
+# variable "hx_vm_migration_vlan_id" {
+#   type        = number
+#   description = "VM migration/vMotion VLAN id"
+# }
+# 
+# ### vm_network_vlans (Type: Array)
+# variable "hx_vm_network_vlans_name" {
+#   type        = string
+#   description = "VM Network vlan name"
+# }
+# variable "hx_vm_network_vlans_id" {
+#   type        = number
+#   description = "VM Network vlan id"
+# }
+# 
+# ## Out-of-band KVM IP range 
+# ### kvm_ip_range Type (Type: HashMap)
+# variable "hx_kvm_oob_start_addr" {
+#   type        = string
+#   description = "Out of band range start ip"
+# }
+# variable "hx_kvm_oob_end_addr" {
+#   type        = string
+#   description = "Out of band range end ip"
+# }
+# variable "hx_kvm_oob_netmask" {
+#   type        = string
+#   description = "Out of band range netmask"
+# }
+# variable "hx_kvm_oob_gateway" {
+#   type        = string
+#   description = "Out of band range gateway"
+# }
+# 
+# ## MAC address prefix range for configuring vNICs
+# ### mac_prefix_range (Type: HashMap)
+# variable "hx_mac_prefix_start_addr" {
+#   type        = string
+#   description = "vNIC mac address range start"
+# }
+# variable "hx_mac_prefix_end_addr" {
+#   type        = string
+#   description = "vNIC mac address range end"
+# }
+# 
+## Mgmt vlan name 
+### mgmt_vlan (Type: HashMap)
+variable "hx_mgmt_vlan_name" {
+  type        = string
+  description = "hx mgmt vlan name"
+}
+
 
 # cluster_storage_policy
-variable "cluster_storage_name" {
-  default = "lab-storage"
+variable "hx_storage_policy_name" {
+  type        = string
+  description = "Storage Policy Name"
 }
-variable "cluster_storage_description" {
-  default = "lab storage"
+variable "hx_storage_policy_description" {
+  type        = string
+  description = "Storage Policy Description"
 }
-variable "cluster_storage_disk_partition_cleanup" {
-  default = true
+variable "hx_vdi_optimization" {
+  type        = bool
+  description = "Enable or disable VDI optimization (hybrid HyperFlex systems only)"
 }
-variable "cluster_storage_vdi_optimization" {
-  default = true
+variable "hx_disk_partition_cleanup" {
+  type        = bool
+  description = "If enabled, formats existing disk partitions (destroys all user data)."
+}
+###   logical_avalability_zone_config  Type: (hashmap)
+# variable "hx_logical_avalability_zone_config" {
+#   type        = bool
+#   description = "Enable or disable Logical Availability Zones (LAZ)"
+# }
+
+
+# local_credential_policy : Security Policy
+variable "hx_local_credential_policy_name" {
+  type        = string
+  description = "local_credential/Security Policy Name"
+}
+variable "hx_local_credential_policy_description" {
+  type        = string
+  description = "local_credential/Security Policy Description"
+}
+variable "hx_factory_hypervisor_password" {
+  type        = bool
+  description = "Indicates if Hypervisor password is the factory set default password. "
+}
+variable "hx_hypervisor_admin_user" {
+  type        = string
+  description = "Hypervisor administrator username"
+}
+variable "hx_hypervisor_admin_pwd" {
+  type        = string
+  description = "Hypervisor administrator password"
+}
+variable "hx_hxdp_root_pwd" {
+  type        = string
+  description = "HyperFlex storage controller VM password"
 }
 
-# local_credential_policy
-variable "local_credential_name" {
-  default = "lab-creds"
-}
-variable "local_credential_description" {
-  default = "lab creds"
-}
-variable "local_credential_factory_hypervisor_password" {
-  default = true
-}
-variable "local_credential_hxdp_root_pwd" {
-  default = "C1sco12345!"
-}
-variable "local_credential_hypervisor_admin" {
-  default = "root"
-}
-variable "local_credential_hypervisor_admin_pwd" {
-  default = "C1sco12345!"
-}
 
 # node_config_policy
-variable "node_config_name" {
-  default = "lab-node"
+variable "hx_node_config_policy_name" {
+  type        = string
+  description = "Node Config Policy name"
 }
-variable "node_config_description" {
-  default = "lab node"
+variable "hx_node_config_policy_description" {
+  type        = string
+  description = "Node Config Policy Description"
 }
-variable "node_config_node_name_prefix" {
-  default = "lab-edge"
-}
-variable "node_config_hxdp_start_addr" {
-  default = "10.0.0.2"
-}
-variable "node_config_hxdp_end_addr" {
-  default = "10.0.0.10"
-}
-variable "node_config_hxdp_gateway" {
-  default = "10.0.0.1"
-}
-variable "node_config_hxdp_netmask" {
-  default = "255.255.255.0"
-}
-variable "node_config_mgmt_start_addr" {
-  default = "10.0.0.21"
-}
-variable "node_config_mgmt_end_addr" {
-  default = "10.0.0.30"
-}
-variable "node_config_mgmt_gateway" {
-  default = "10.0.0.1"
-}
-variable "node_config_mgmt_netmask" {
-  default = "255.255.255.0"
+variable "hx_node_name_prefix" {
+  type        = string
+  description = "used to automatically generate the default hostname for each server."
 }
 
+# hxdp mgmt/eth0 IP range 
+variable "hx_hxdp_mgmt_start_addr" {
+  type        = string
+  description = "CtrlVM management/eth0 start IP"
+}
+variable "hx_hxdp_mgmt_end_addr" {
+  type        = string
+  description = "CtrlVM management/eth0 end IP"
+}
+variable "hx_hxdp_mgmt_gateway" {
+  type        = string
+  description = "CtrlVM management/eth0 Gateway"
+}
+variable "hx_hxdp_mgmt_netmask" {
+  type        = string
+  description = "CtrlVM management/eth0 Netmask"
+}
+
+# hxdp data/eth1 IP range
+# variable "hx_hxdp_data_start_addr" {
+#   type        = string
+#   description = "CtrlVM Data/eth1 start IP"
+# }
+# variable "hx_hxdp_data_end_addr" {
+#   type        = string
+#   description = "CtrlVM Data/eth1 end IP"
+# }
+# variable "hx_hxdp_data_gateway" {
+#   type        = string
+#   description = "CtrlVM Data/eth1 Gateway"
+# }
+# variable "hx_hxdp_data_netmask" {
+#   type        = string
+#   description = "CtrlVM Data/eth1 Netmask"
+# }
+
+# Hypervisor mgmt/vmk0 IP range
+variable "hx_hypervisor_mgmt_start_addr" {
+  type        = string
+  description = "Hypervisor Mgmt/vmk0 start IP"
+}
+variable "hx_hypervisor_mgmt_end_addr" {
+  type        = string
+  description = "Hypervisor Mgmt/vmk0 end IP"
+}
+variable "hx_hypervisor_mgmt_gateway" {
+  type        = string
+  description = "Hypervisor Mgmt/vmk0 Gateway"
+}
+variable "hx_hypervisor_mgmt_netmask" {
+  type        = string
+  description = "Hypervisor Mgmt/vmk0 Netmask"
+}
+
+# Hypervisor vMotion IP range
+variable "hx_hypervisor_vmotion_start_addr" {
+  type        = string
+  description = "Hypervisor vmotion start IP"
+}
+variable "hx_hypervisor_vmotion_end_addr" {
+  type        = string
+  description = "Hypervisor vmotion end IP"
+}
+variable "hx_hypervisor_vmotion_gateway" {
+  type        = string
+  description = "Hypervisor vmotion Gateway"
+}
+variable "hx_hypervisor_vmotion_netmask" {
+  type        = string
+  description = "Hypervisor vmotion Netmask"
+}
+
+
 # software_version_policy
-variable "software_version_name" {
-  default = "lab-software"
+variable "hx_software_version_policy_name" {
+  type        = string
+  description = "Software policy Name"
 }
-variable "software_version_description" {
-  default = "lab software"
+variable "hx_software_version_policy_description" {
+  type        = string
+  description = "Software policy Description"
 }
-variable "software_version_hxdp_version" {
-  default = "4.0(2c)"
+variable "hx_hxdp_version" {
+  type        = string
+  description = "Desired HXDP software version to apply on the HyperFlex cluster"
 }
 
 # sys_config_policy
-variable "sys_config_name" {
-  default = "lab-sys"
+variable "hx_sys_config_policy_name" {
+  type        = string
+  description = "system configuration policy name"
 }
-variable "sys_config_description" {
-  default = "lab sys-config"
+variable "hx_sys_config_policy_description" {
+  type        = string
+  description = "system configuration policy description"
 }
-variable "sys_config_dns_domain_name" {
-  default = "lab.lab"
+variable "hx_dns_domain_name" {
+  type        = string
+  description = "The DNS Search Domain Name"
 }
-variable "sys_config_dns_servers" {
-  default = ["1.1.1.1", "2.2.2.2"]
+variable "hx_dns_servers" {
+  type        = list(string)
+  description = "list of DNS server IPs"
 }
-variable "sys_config_ntp_servers" {
-  default = ["ntp1.google.com", "ntp2.google.com"]
+variable "hx_ntp_servers" {
+  type        = list(string)
+  description = "List of ntp server IPs"
 }
-variable "sys_config_timezone" {
-  default = "America/Los_Angeles"
+variable "hx_timezone" {
+  type        = string
+  description = "Timezone"
+  # Get the values from url: 
+  # https://registry.terraform.io/providers/CiscoDevNet/intersight/latest/docs/resources/hyperflex_sys_config_policy
 }
 
-# proxy_setting_policy
-variable "proxy_setting_name" {
-  default = "lab-proxy"
-}
-variable "proxy_setting_description" {
-  default = "lab proxy"
-}
-variable "proxy_setting_hostname" {
-  default = "proxy.homelab.com"
-}
-variable "proxy_setting_password" {
-  default = "password"
-}
-variable "proxy_setting_port" {
-  default = 80
-}
-variable "proxy_setting_username" {
-  default = "root"
-}
+# # proxy_setting_policy
+# variable "hx_proxy_policy_name" {
+#   type        = string
+#   description = "Hyperflex proxy setting policy name"
+# }
+# variable "hx_proxy_policy_description" {
+#   type        = string
+#   description = "Hyperflex proxy setting policy description"
+# }
+# variable "hx_proxy_ip" {
+#   type        = string
+#   description = "HTTP Proxy server FQDN or IP."
+# }
+# variable "hx_proxy_password" {
+#   type        = string
+#   description = "The password for the HTTP Proxy"
+# }
+# variable "hx_proxy_port" {
+#   type        = number
+#   description = "The HTTP Proxy port number"
+# }
+# variable "hx_proxy_username" {
+#   type        = string
+#   description = "The username for the HTTP Proxy"
+# }
+
 
 # vcenter_config_policy 
-variable "vcenter_config_name" {
-  default = "lab_vcenter"
+variable "hx_vcenter_policy_name" {
+  type        = string
+  description = "vCenter Policy Name"
 }
-variable "vcenter_config_description" {
-  default = "lab vcenter"
+variable "hx_vcenter_policy_description" {
+  type        = string
+  description = "Description of the policy"
 }
-variable "vcenter_config_data_center" {
-  default = "lab-dc"
+variable "hx_vcenter_dc_name" {
+  type        = string
+  description = "vCenter Datacenter Name"
 }
-variable "vcenter_config_hostname" {
-  default = "10.1.1.1"
+variable "hx_vcenter_ip" {
+  type        = string
+  description = "vCenter Server FQDN or IP"
 }
-variable "vcenter_config_password" {
-  default = "C1sco12345!"
+variable "hx_vcenter_username" {
+  type        = string
+  description = "vCenter Username"
 }
-variable "vcenter_config_username" {
-  default = "administrator@vsphere.local"
+variable "hx_vcenter_password" {
+  type        = string
+  description = "vCenter Password"
 }
 
+# # Replication_network_policy
+# variable "hx_replication_network_policy_name" {
+#   type        = string
+#   description = "Replication Policy Name"
+# }
+# variable "hx_replication_network_policy_description" {
+#   type        = string
+#   description = "Replication Policy Description"
+# }
+# variable "hx_replication_bandwidth_mbps" {
+#   type        = string
+#   description = "Bandwidth for the Replication network in Mbps, range: 0-100000"
+# }
+# variable "hx_replication_mtu" {
+#   type        = number
+#   description = "MTU for the Replication network, range: 1024-1500"
+# }
+# 
+# ##replication_vlan : Type:(hashmap)
+# variable "hx_replication_vlan_name" {
+#   type        = string
+#   description = "Replication Network VLAN Name"
+# }
+# variable "hx_replication_vlad_id" {
+#   type        = number
+#   description = "Replication Network VLAN Id, The management VLAN must have outbound network connectivity to Intersight, range: 0-4095"
+# }
+# 
+# ## replication_ipranges : Type: (array)
+# variable "hx_replication_ip_start_addr" {
+#   type        = string
+#   description = "The start IPv4 address of the range."
+# }
+# variable "hx_replication_ip_end_addr" {
+#   type        = string
+#   description = "The end IPv4 address of the range."
+# }
+# variable "hx_replication_netmask" {
+#   type        = string
+#   description = "The netmask specified in dot decimal notation."
+# }
+# variable "hx_replication_gateway" {
+#   type        = string
+#   description = "The default gateway for the start and end IPv4 addresses."
+# }
+# 
+# 
+# # Ext iSCSI Policy 
+# variable "hx_ext_iscsi_policy_name" {
+#   type        = string
+#   description = "HX iscsi policy name"
+# }
+# variable "hx_ext_iscsi_policy_description" {
+#   type        = string
+#   description = "HX iscsi policy descripition"
+# }
+# variable "hx_ext_iscsi_admin_state" {
+#   type        = bool
+#   description = "Enable or disable external FCoE storage configuration"
+# }
+# variable "hx_exta_name" {
+#   type        = string
+#   description = "Path_A vlan name"
+# }
+# variable "hx_exta_vlan_id" {
+#   type        = number
+#   description = "Path_A vlan id"
+# }
+# variable "hx_extb_name" {
+#   type        = string
+#   description = "Path_B vlan name"
+# }
+# variable "hx_extb_vlan_id" {
+#   type        = number
+#   description = "Path_B vlan id"
+# }
+# 
+# 
+# # Ext FC storage policy
+# variable "hx_fc_storage_policy_name" {
+#   type        = string
+#   description = "hx fc storage policy name"
+# }
+# variable "hx_fc_storage_policy_description" {
+#   type        = string
+#   description = "hx fc storage policy description"
+# }
+# variable "hx_fc_admin_state" {
+#   type        = bool
+#   description = "Enables or disables external FC storage configuration"
+# }
+# variable "hx_fc_exta_vsan_name" {
+#   type        = string
+#   description = "path_a vsan name"
+# }
+# variable "hx_fc_exta_vsan_id" {
+#   type        = number
+#   description = "path_a vsan id"
+# }
+# variable "hx_fc_extb_vsan_name" {
+#   type        = string
+#   description = "path_b vsan name"
+# }
+# variable "hx_fc_extb_vsan_id" {
+#   type        = number
+#   description = "path_b vsan id"
+# }
+# variable "hx_fc_wwxn_prefix_start_addr" {
+#   type        = string
+#   description = "The start WWxN prefix of a WWPN/WWNN range in the form of 20:00:00:25:B5:XX"
+# }
+# variable "hx_fc_wwxn_prefix_end_addr" {
+#   type        = string
+#   description = "The end WWxN prefix of a WWPN/WWNN range in the form of 20:00:00:25:B5:XX"
+# }
+
+
 # cluster_profile
-variable "cluster_profile_name" {
-  default = "lab-cluster"
+variable "hx_profile_name" {
+  type        = string
+  description = "hx cluster profile name"
 }
-variable "cluster_profile_description" {
-  default = "lab cluster"
+variable "hx_profile_description" {
+  type        = string
+  description = "hx profile description"
 }
-variable "cluster_profile_data_ip_address" {
-  default = "10.0.1.2"
+variable "hx_data_ip_address" {
+  type        = string
+  description = "hx data cluster ip"
 }
-variable "cluster_profile_hypervisor_type" {
-  default = "ESXi"
+variable "hx_hypervisor_type" {
+  type        = string
+  description = "hx hypervisor type"
 }
-variable "cluster_profile_mac_address_prefix" {
-  default = "00:25:B5:AB"
+variable "hx_mac_address_prefix" {
+  type        = string
+  description = "hx mac address prefix"
 }
-variable "cluster_profile_mgmt_ip_address" {
-  default = "10.0.0.11"
+variable "hx_host_name_prefix" {
+  type        = string
+  description = "The specified Hostname Prefix will be applied to all nodes"
 }
-variable "cluster_profile_mgmt_platform" {
-  default = "EDGE"
+variable "hx_mgmt_ip_address" {
+  type        = string
+  description = "hx mgmt cluster ip"
 }
-variable "cluster_profile_replication" {
-  default = 2
+variable "hx_mgmt_platform" {
+  type        = string
+  description = "Depoloyment type: FI or EDGE "
 }
-variable "cluster_profile_storage_data_vlan_name" {
-  default = "lab-storage-vlan"
+variable "hx_replication" {
+  type        = number
+  description = "hx replication count"
 }
-variable "cluster_profile_storage_data_vlan_id" {
-  default = 101
+variable "hx_storage_data_vlan_name" {
+  type        = string
+  description = "hx storage data vlan name"
+}
+variable "hx_storage_data_vlan_id" {
+  type        = number
+  description = "hx storage data vlan id"
 }

@@ -1,0 +1,15 @@
+resource "intersight_hyperflex_proxy_setting_policy" "hx_proxy_setting_policy" {
+  name        = var.hx_proxy_policy_name
+  description = var.hx_proxy_policy_description
+  hostname    = var.hx_proxy_ip
+  password    = var.hx_proxy_password
+  port        = var.hx_proxy_port
+  username    = var.hx_proxy_username
+  organization {
+    object_type = "organization.Organization"
+  }
+  tags {
+    key   = var.tag_key1
+    value = var.tag_value1
+  }
+}
