@@ -3,6 +3,7 @@
 api_key                                     = ""
 secret_key_file                             = ""
 # Common
+org_name                                    = "default"
 # Tags
 tag_key1                                    = ""
 tag_value1                                  = ""

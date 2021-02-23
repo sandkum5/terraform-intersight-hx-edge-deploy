@@ -1,7 +1,15 @@
 # IP & Hostname
 resource "intersight_hyperflex_node_config_policy" "hx_node_config_policy" {
-  name             = var.hx_node_config_policy_name
-  description      = var.hx_node_config_policy_description
+  name        = var.hx_node_config_policy_name
+  description = var.hx_node_config_policy_description
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org_data.moid
+  }
+  tags {
+    key   = var.tag_key1
+    value = var.tag_value1
+  }
   node_name_prefix = var.hx_node_name_prefix
 
   # Hypervisor vmk0 IP range 
@@ -34,12 +42,4 @@ resource "intersight_hyperflex_node_config_policy" "hx_node_config_policy" {
   #   gateway    = var.hx_hxdp_data_gateway
   #   netmask    = var.hx_hxdp_data_netmask
   # }
-
-  organization {
-    object_type = "organization.Organization"
-  }
-  tags {
-    key   = var.tag_key1
-    value = var.tag_value1
-  }
 }

@@ -1,6 +1,14 @@
 resource "intersight_hyperflex_ext_iscsi_storage_policy" "hx_ext_iscsi_policy" {
   name        = var.hx_ext_iscsi_policy_name
   description = var.hx_ext_iscsi_policy_description
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org_data.moid
+  }
+  tags {
+    key   = var.tag_key1
+    value = var.tag_value1
+  }  
   admin_state = var.hx_ext_iscsi_admin_state
   exta_traffic = [{
     name    = var.hx_iscsi_exta_name

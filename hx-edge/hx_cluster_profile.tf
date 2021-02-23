@@ -8,8 +8,16 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
     intersight_hyperflex_sys_config_policy.hx_sys_config_policy,
     intersight_hyperflex_vcenter_config_policy.hx_vcenter_policy
   ]
-  name               = var.hx_profile_name
-  description        = var.hx_profile_description
+  name        = var.hx_profile_name
+  description = var.hx_profile_description
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org_data.moid
+  }
+  tags {
+    key   = var.tag_key1
+    value = var.tag_value1
+  }
   data_ip_address    = var.hx_data_ip_address
   hypervisor_type    = var.hx_hypervisor_type
   mac_address_prefix = var.hx_mac_address_prefix
@@ -20,13 +28,6 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
   storage_data_vlan {
     name    = var.hx_storage_data_vlan_name
     vlan_id = var.hx_storage_data_vlan_id
-  }
-  organization {
-    object_type = "organization.Organization"
-  }
-  tags {
-    key   = var.tag_key1
-    value = var.tag_value1
   }
   local_credential {
     moid = intersight_hyperflex_local_credential_policy.hx_local_credential_policy.moid

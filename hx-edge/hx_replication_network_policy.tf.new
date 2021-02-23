@@ -1,6 +1,14 @@
 resource "intersight_hyperflex_cluster_replication_network_policy" "hx_replication_network_policy" {
   name        = var.hx_replication_network_policy_name
   description = var.hx_replication_network_policy_description
+  organization {
+    object_type = "organization.Organization"
+    moid = data.intersight_organization_organization.org_data.moid
+  }
+  tags {
+    key   = var.tag_key1
+    value = var.tag_value1
+  }  
   replication_vlan {
     name    = var.hx_replication_vlan_name
     vlan_id = var.hx_replication_vlad_id
@@ -14,11 +22,4 @@ resource "intersight_hyperflex_cluster_replication_network_policy" "hx_replicati
     gateway    = var.hx_replication_gateway
 
   }]
-  organization {
-    object_type = "organization.Organization"
-  }
-  tags {
-    key   = var.tag_key1
-    value = var.tag_value1
-  }
 }

@@ -17,6 +17,11 @@ variable "endpoint" {
   default     = "https://intersight.com"
 }
 
+# Org Details
+variable "org_name" {
+  type        = string
+  description = "Name of the Org where you want to create the resource"
+}
 
 # Common
 # Tags

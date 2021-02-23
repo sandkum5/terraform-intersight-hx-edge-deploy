@@ -1,7 +1,15 @@
 # Network Configuration
 resource "intersight_hyperflex_cluster_network_policy" "hx_network_config_policy" {
-  name         = var.hx_network_policy_name
-  description  = var.hx_network_policy_description
+  name        = var.hx_network_policy_name
+  description = var.hx_network_policy_description
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org_data.moid
+  }
+  tags {
+    key   = var.tag_key1
+    value = var.tag_value1
+  }
   jumbo_frame  = var.hx_jumbo_frame
   uplink_speed = var.hx_uplink_speed
   mgmt_vlan {
@@ -27,11 +35,4 @@ resource "intersight_hyperflex_cluster_network_policy" "hx_network_config_policy
   #   netmask = var.hx_kvm_oob_netmask
   #   gateway = var.hx_kvm_oob_gateway
   # }
-  organization {
-    object_type = "organization.Organization"
-  }
-  tags {
-    key   = var.tag_key1
-    value = var.tag_value1
-  }
 }

@@ -4,6 +4,7 @@ api_key                                     = "<api_key>"
 secret_key                                  = "<Secret_key_file"
 endpoint                                    = "https://intersight.com"
 # Common
+org_name                                    = "default"
 # Tags
 tag_key1                                    = "ENV"
 tag_value1                                  = "LAB"
