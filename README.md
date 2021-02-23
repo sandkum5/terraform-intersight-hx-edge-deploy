@@ -81,6 +81,9 @@ terraform apply -var-file=<env_name>.tfvars
 ### Additional intersight modules: 
 https://github.com/CiscoDevNet/intersight-terraform-modules
 
+https://github.com/sandkum5/intersight-terraform-C-Series
+
+https://github.com/sandkum5/terraform_intersight_os_install
 
 ### Caveates 
 -When we create HX Cluster profile and try to delete the HX Cluster profile using terraform, we get the following error:
