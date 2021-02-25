@@ -1,6 +1,6 @@
 resource "intersight_hyperflex_cluster_storage_policy" "hx_storage_config_policy" {
-  name        = var.hx_storage_policy_name
-  description = var.hx_storage_policy_description
+  name        = "${var.cluster_name}_storage_config"
+  description = "HX Storage Configuration"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.moid

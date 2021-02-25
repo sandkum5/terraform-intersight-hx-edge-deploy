@@ -8,8 +8,8 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
     intersight_hyperflex_sys_config_policy.hx_sys_config_policy,
     intersight_hyperflex_vcenter_config_policy.hx_vcenter_policy
   ]
-  name        = var.hx_profile_name
-  description = var.hx_profile_description
+  name        = var.cluster_name
+  description = "${var.cluster_name} HX Cluster Profile"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.moid
@@ -50,20 +50,20 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
   cluster_network {
     moid = intersight_hyperflex_cluster_network_policy.hx_network_config_policy.moid
   }
-  /*
   proxy_setting {
+
     moid = intersight_hyperflex_proxy_setting_policy.hx_proxy_setting_policy.moid
   }
+  /*
   ext_fc_storage {
-    moid = ""
-    selector = "Serial eq 'xxxxx'"
+    moid = intersight_hyperflex_ext_fc_storage_policy.hx_ext_fc_storage_policy.moid
   }
   ext_iscsi_storage {
-    moid = ""
-    selector = ""
+    moid = intersight_hyperflex_ext_iscsi_storage_policy.hx_ext_iscsi_policy.moid
   }
   */
   software_version {
     moid = intersight_hyperflex_software_version_policy.hx_software_version_policy.moid
   }
+  # action = var.hx_profile_action
 }

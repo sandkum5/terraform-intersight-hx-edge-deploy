@@ -1,6 +1,6 @@
 resource "intersight_hyperflex_local_credential_policy" "hx_local_credential_policy" {
-  name        = var.hx_local_credential_policy_name
-  description = var.hx_local_credential_policy_description
+  name        = "${var.cluster_name}_security_config"
+  description = "HX Local Credentials Policy"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.moid

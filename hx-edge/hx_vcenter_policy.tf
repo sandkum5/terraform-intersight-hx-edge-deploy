@@ -1,6 +1,6 @@
 resource "intersight_hyperflex_vcenter_config_policy" "hx_vcenter_policy" {
-  name        = var.hx_vcenter_policy_name
-  description = var.hx_vcenter_policy_description
+  name        = "${var.cluster_name}_vcenter_config"
+  description = "HX vCenter Config Policy"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.moid

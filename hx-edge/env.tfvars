@@ -19,22 +19,15 @@ hx_network_policy_name                      = ""
 hx_network_policy_description               = ""
 hx_jumbo_frame                              = # <bool>
 hx_uplink_speed                             = ""
+hx_mgmt_vlan_name                           = ""
 hx_mgmt_vlan_id                             = # <int>
-
 ## 10G options 
 hx_vm_migration_vlan_name                   = ""
 hx_vm_migration_vlan_id                     = "" # <int>
 hx_vm_network_vlans_name                    = ""
 hx_vm_network_vlans_id                      = "" # <int>
-hx_kvm_oob_start_addr                       = ""
-hx_kvm_oob_end_add                          = ""
-hx_kvm_oob_netmask                          = ""
-hx_kvm_oob_gateway                          = ""
 hx_mac_prefix_start_addr                    = ""
 hx_mac_prefix_end_addr                      = ""
-hx_mgmt_vlan_name                           = ""
-
-
 
 # cluster_storage_policy
 hx_storage_policy_name                      = ""

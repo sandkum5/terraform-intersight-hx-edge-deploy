@@ -1,6 +1,6 @@
 resource "intersight_hyperflex_auto_support_policy" "hx_auto_support_policy" {
-  name        = var.hx_auto_support_name
-  description = var.hx_auto_support_description
+  name        = "${var.cluster_name}-auto-support"
+  description = "Auto Support Policy"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.moid
