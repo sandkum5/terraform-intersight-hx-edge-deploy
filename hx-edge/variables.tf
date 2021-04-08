@@ -107,6 +107,7 @@ variable "hx_vm_network_vlans_id" {
 }
 ## Out-of-band KVM IP range 
 ### kvm_ip_range Type (Type: HashMap)
+/*
 variable "hx_kvm_oob_start_addr" {
   type        = string
   description = "Out of band range start ip"
@@ -123,7 +124,7 @@ variable "hx_kvm_oob_gateway" {
   type        = string
   description = "Out of band range gateway"
 }
-
+*/
 # cluster_storage_policy OPTIONAL
 variable "hx_vdi_optimization" {
   type        = bool

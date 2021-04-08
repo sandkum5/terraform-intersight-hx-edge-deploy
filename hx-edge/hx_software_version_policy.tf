@@ -3,7 +3,7 @@ resource "intersight_hyperflex_software_version_policy" "hx_software_version_pol
   description = "HX Software Version Policy"
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org_data.moid
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
   tags {
     key   = var.tag_key1

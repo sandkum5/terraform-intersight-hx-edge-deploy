@@ -15,7 +15,7 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
   description = "${var.cluster_name} HX Cluster Profile"
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org_data.moid
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
   tags {
     key   = var.tag_key1

@@ -4,7 +4,7 @@ resource "intersight_hyperflex_node_config_policy" "hx_node_config_policy" {
   description = "HX Node Config Policy"
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org_data.moid
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
   tags {
     key   = var.tag_key1

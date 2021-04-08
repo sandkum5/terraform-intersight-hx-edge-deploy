@@ -3,7 +3,7 @@ resource "intersight_hyperflex_cluster_storage_policy" "hx_storage_config_policy
   description = "HX Storage Configuration"
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org_data.moid
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
   tags {
     key   = var.tag_key1

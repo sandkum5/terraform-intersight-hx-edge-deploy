@@ -3,7 +3,7 @@ resource "intersight_hyperflex_vcenter_config_policy" "hx_vcenter_policy" {
   description = "HX vCenter Config Policy"
   organization {
     object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org_data.moid
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
   tags {
     key   = var.tag_key1
