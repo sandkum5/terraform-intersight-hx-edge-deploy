@@ -30,7 +30,7 @@ variable "cluster_name" {
 variable "hx_profile_action" {
   type        = string
   description = "HX Profile action: validation/deploy, etc"
-  default     = "validation"
+  default     = "validate" # Validate, Deploy 
 }
 
 # Common
@@ -43,6 +43,7 @@ variable "tag_value1" {
   type        = string
   description = "Environment Specific tag value"
 }
+
 
 # auto_support_policy OPTIONAL 
 variable "hx_auto_support_service_ticket_receipient" {
@@ -80,54 +81,48 @@ variable "hx_mac_prefix_end_addr" {
   type        = string
   description = "vNIC mac address range end"
 }
-
 ## Mgmt vlan name 
 ### mgmt_vlan (Type: HashMap)
 variable "hx_mgmt_vlan_name" {
   type        = string
   description = "hx mgmt vlan name"
 }
-
-# ### vm_migration_vlan (Type: HashMap)
-# variable "hx_vm_migration_vlan_name" {
-#   type        = string
-#   description = "VM migration/vMotion VLAN name"
-# }
-# variable "hx_vm_migration_vlan_id" {
-#   type        = number
-#   description = "VM migration/vMotion VLAN id"
-# }
-# 
-# ### vm_network_vlans (Type: Array)
-# variable "hx_vm_network_vlans_name" {
-#   type        = string
-#   description = "VM Network vlan name"
-# }
-# variable "hx_vm_network_vlans_id" {
-#   type        = number
-#   description = "VM Network vlan id"
-# }
-# 
-# ## Out-of-band KVM IP range 
-# ### kvm_ip_range Type (Type: HashMap)
-# variable "hx_kvm_oob_start_addr" {
-#   type        = string
-#   description = "Out of band range start ip"
-# }
-# variable "hx_kvm_oob_end_addr" {
-#   type        = string
-#   description = "Out of band range end ip"
-# }
-# variable "hx_kvm_oob_netmask" {
-#   type        = string
-#   description = "Out of band range netmask"
-# }
-# variable "hx_kvm_oob_gateway" {
-#   type        = string
-#   description = "Out of band range gateway"
-# }
-# 
-
+### vm_migration_vlan (Type: HashMap)
+variable "hx_vm_migration_vlan_name" {
+  type        = string
+  description = "VM migration/vMotion VLAN name"
+}
+variable "hx_vm_migration_vlan_id" {
+  type        = number
+  description = "VM migration/vMotion VLAN id"
+}
+### vm_network_vlans (Type: Array)
+variable "hx_vm_network_vlans_name" {
+  type        = string
+  description = "VM Network vlan name"
+}
+variable "hx_vm_network_vlans_id" {
+  type        = number
+  description = "VM Network vlan id"
+}
+## Out-of-band KVM IP range 
+### kvm_ip_range Type (Type: HashMap)
+variable "hx_kvm_oob_start_addr" {
+  type        = string
+  description = "Out of band range start ip"
+}
+variable "hx_kvm_oob_end_addr" {
+  type        = string
+  description = "Out of band range end ip"
+}
+variable "hx_kvm_oob_netmask" {
+  type        = string
+  description = "Out of band range netmask"
+}
+variable "hx_kvm_oob_gateway" {
+  type        = string
+  description = "Out of band range gateway"
+}
 
 # cluster_storage_policy OPTIONAL
 variable "hx_vdi_optimization" {
@@ -162,7 +157,6 @@ variable "hx_hxdp_root_pwd" {
   type        = string
   description = "HyperFlex storage controller VM password"
 }
-
 
 # node_config_policy
 variable "hx_node_name_prefix" {
@@ -325,7 +319,6 @@ variable "hx_replication_vlad_id" {
   type        = number
   description = "Replication Network VLAN Id, The management VLAN must have outbound network connectivity to Intersight, range: 0-4095"
 }
-
 ## replication_ipranges : Type: (array)
 variable "hx_replication_ip_start_addr" {
   type        = string
@@ -437,7 +430,12 @@ variable "hx_storage_data_vlan_id" {
 }
 
 # node_config_policy
-variable "hx_servers" {
-  type        = map(string)
-  description = "HX server list for the cluster"
+# variable "hx_servers" {
+#   type        = map(string)
+#   description = "HX server list for the cluster"
+# }
+
+variable "names" {
+  type    = list(string)
+  default = ["dev-prof", "lab-prof", "stage-prof"]
 }

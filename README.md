@@ -85,6 +85,9 @@ https://github.com/sandkum5/intersight-terraform-C-Series
 
 https://github.com/sandkum5/terraform_intersight_os_install
 
+https://github.com/sandkum5/terraform_intersight_firmware_upgrade.git
+
+
 ### Caveates 
 -When we create HX Cluster profile and try to delete the HX Cluster profile using terraform, we get the following error:
 Error: error occurred while deleting HyperflexSoftwareVersionPolicy object: 404 Not Found Response from endpoint:

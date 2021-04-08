@@ -8,7 +8,10 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
     intersight_hyperflex_sys_config_policy.hx_sys_config_policy,
     intersight_hyperflex_vcenter_config_policy.hx_vcenter_policy
   ]
-  name        = var.cluster_name
+  # count = length(var.names)
+  # name        = "${var.cluster_name}_${var.names[count.index]}"
+  count       = 5
+  name        = "${var.cluster_name}_${count.index}"
   description = "${var.cluster_name} HX Cluster Profile"
   organization {
     object_type = "organization.Organization"
@@ -51,7 +54,6 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
     moid = intersight_hyperflex_cluster_network_policy.hx_network_config_policy.moid
   }
   proxy_setting {
-
     moid = intersight_hyperflex_proxy_setting_policy.hx_proxy_setting_policy.moid
   }
   /*

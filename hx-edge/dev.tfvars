@@ -46,25 +46,21 @@ hx_hypervisor_admin_pwd                     = "C1sco12345!"
 
 # node_config_policy
 hx_node_name_prefix                         = "lab-edge"
-
 ## Hypervisor mgmt/vmk0 IP range
 hx_hypervisor_mgmt_start_addr               = "10.1.0.21"
 hx_hypervisor_mgmt_end_addr                 = "10.1.0.30"
 hx_hypervisor_mgmt_gateway                  = "10.1.0.1"
 hx_hypervisor_mgmt_netmask                  = "255.255.255.0"
-
 ## hxdp mgmt/eth0 IP range 
 hx_hxdp_mgmt_start_addr                     = "10.1.0.2"
 hx_hxdp_mgmt_end_addr                       = "10.1.0.10"
 hx_hxdp_mgmt_gateway                        = "10.1.0.1"
 hx_hxdp_mgmt_netmask                        = "255.255.255.0"
-
 ## hxdp data/eth1 IP range
 # hx_hxdp_data_start_addr                   = ""
 # hx_hxdp_data_end_addr                     = ""
 # hx_hxdp_data_gateway                      = ""
 # hx_hxdp_data_netmask                      = ""
-
 ## Hypervisor vMotion IP range
 # hx_hypervisor_vmotion_start_addr            = "10.3.0.21"
 # hx_hypervisor_vmotion_end_addr              = "10.3.0.30"
@@ -92,11 +88,10 @@ hx_vcenter_ip                               = "10.1.1.1"
 hx_vcenter_password                         = "C1sco12345!"
 hx_vcenter_username                         = "administrator@vsphere.local"
 
-
 # Replication_network_policy
 hx_replication_bandwidth_mbps             = 1000
 hx_replication_mtu                        = 1500 # <int>
-hx_replication_vlan_name                  = "replication_vlan "
+hx_replication_vlan_name                  = "replication_vlan"
 hx_replication_vlad_id                    = 14  # <int> 
 hx_replication_ip_start_addr              = ""
 hx_replication_ip_end_addr                = ""
