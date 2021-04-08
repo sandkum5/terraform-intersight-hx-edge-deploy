@@ -8,10 +8,7 @@ resource "intersight_hyperflex_cluster_profile" "hx_cluster_profile" {
     intersight_hyperflex_sys_config_policy.hx_sys_config_policy,
     intersight_hyperflex_vcenter_config_policy.hx_vcenter_policy
   ]
-  # count = length(var.names)
-  # name        = "${var.cluster_name}_${var.names[count.index]}"
-  count       = 5
-  name        = "${var.cluster_name}_${count.index}"
+  name        = var.cluster_name
   description = "${var.cluster_name} HX Cluster Profile"
   organization {
     object_type = "organization.Organization"
